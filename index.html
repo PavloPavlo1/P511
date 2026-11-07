@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f0e8">
+  <meta name="description" content="Yaruna Bodyak — ігрова майстерня кейсів та апгрейдів CS2.">
+  <title>Yaruna Bodyak — ігрова майстерня</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Yaruna Bodyak — на головну">
+        <span class="brand-mark" aria-hidden="true">YB</span>
+        <span class="brand-name">Yaruna <b>Bodyak</b><small>GAME ATELIER · CS2</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Головна навігація">
+        <button class="nav-link active" data-view="casesView">Кейси</button>
+        <button class="nav-link" data-view="upgradeView">Апгрейд</button>
+        <button class="nav-link" data-view="inventoryView">Інвентар <span class="inventory-count" id="inventoryCount">0</span></button>
+      </nav>
+      <div class="account-actions">
+        <button class="balance-button" id="balanceButton" data-open-topup aria-haspopup="dialog" aria-controls="topupDialog">
+          <span class="coin-icon" aria-hidden="true">✳</span>
+          <span><small>МІЙ БАЛАНС</small><strong><span id="balanceAmount">500</span> <i>жет.</i></strong></span>
+          <span class="balance-plus" aria-hidden="true">+</span>
+        </button>
+        <button class="profile-button" id="profileButton" type="button"><span class="profile-dot">Y</span><span id="profileLabel">Увійти</span></button>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="view active-view" id="casesView" aria-labelledby="heroTitle">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="live-dot"></span> МАЙСТЕРНЯ ВІДКРИТА <span class="eyebrow-line"></span> № 024</p>
+            <h1 id="heroTitle">Знайди свій<br><em>наступний скін.</em></h1>
+            <p class="hero-text">Трохи вдачі, трохи стилю — і предмет для твого інвентаря вже на горизонті.</p>
+            <div class="hero-actions">
+              <button class="button button-dark" data-scroll-cases>Обрати кейс <span aria-hidden="true">↘</span></button>
+              <span class="hero-note"><span class="sparkle">✳</span> Демо-баланс для знайомства</span>
+            </div>
+            <div class="hero-footnote">Віртуальні жетони · без реальних платежів</div>
+          </div>
+          <div class="hero-art" aria-label="Ілюстрація предмета у футуристичному стилі" role="img">
+            <span class="art-stamp">DROP<br>ZONE</span>
+            <span class="art-orbit orbit-one"></span><span class="art-orbit orbit-two"></span>
+            <div class="art-sun"></div>
+            <svg class="hero-weapon" viewBox="0 0 520 190" role="img" aria-label="Абстрактна ілюстрація ігрового предмета">
+              <defs><linearGradient id="weaponPaint" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e8ff9a"/><stop offset=".55" stop-color="#8ed0b2"/><stop offset="1" stop-color="#6979c9"/></linearGradient></defs>
+              <path d="M53 78h66l26-17h81l27 17h113l19 12h77v25h-43l-9 15h-60l-16-15H222l-17 19h-43l-10-19h-51l-17 13H51l11-26-9-24z" fill="url(#weaponPaint)" stroke="#233044" stroke-width="7" stroke-linejoin="round"/>
+              <path d="M219 78v-25h54l14 25M116 78l17-17m157 17 19 39m-96-39-7 34m-79-18h42m119-16h42" fill="none" stroke="#233044" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M173 80h47v28h-47zm95 0h41v24h-41z" fill="#ff795f" stroke="#233044" stroke-width="5"/>
+              <circle cx="107" cy="97" r="8" fill="#233044"/><circle cx="355" cy="97" r="8" fill="#233044"/>
+            </svg>
+            <span class="art-caption">COLLECTOR SERIES <b>07 / 12</b></span>
+            <span class="art-spark spark-a">✳</span><span class="art-spark spark-b">✦</span>
+          </div>
+        </div>
+
+        <div class="section-heading" id="caseShelf">
+          <div><p class="eyebrow muted">КАТАЛОГ МАЙСТЕРНІ</p><h2>Кейси з характером</h2></div>
+          <div class="shelf-controls"><span>01 — 03</span><span class="control-dash"></span><button aria-label="Попередні кейси" disabled>←</button><button aria-label="Наступні кейси">→</button></div>
+        </div>
+        <div class="case-grid">
+          <article class="case-card case-lime">
+            <div class="case-card-top"><span class="case-tag">ЛЕГКИЙ СТАРТ</span><span class="case-number">01</span></div>
+            <div class="case-art case-art-lime"><span class="case-halo"></span><span class="case-shape shape-star">✳</span><span class="case-cube">YB</span><span class="tiny-orbit"></span></div>
+            <div class="case-info"><div><h3>Зелений імпульс</h3><p>Для першого відкриття</p></div><span class="case-price">49 <small>жет.</small></span></div>
+            <button class="button case-open" data-case-name="Зелений імпульс" data-case-price="49">Відкрити кейс <span>↗</span></button>
+          </article>
+          <article class="case-card case-lilac">
+            <div class="case-card-top"><span class="case-tag">ПОПУЛЯРНИЙ</span><span class="case-number">02</span></div>
+            <div class="case-art case-art-lilac"><span class="case-halo"></span><span class="case-shape shape-orbit">◉</span><span class="case-cube cube-lilac">07</span><span class="tiny-orbit"></span></div>
+            <div class="case-info"><div><h3>Орбітальний</h3><p>Рідкісні кольори в колекції</p></div><span class="case-price">120 <small>жет.</small></span></div>
+            <button class="button case-open" data-case-name="Орбітальний" data-case-price="120">Відкрити кейс <span>↗</span></button>
+          </article>
+          <article class="case-card case-coral">
+            <div class="case-card-top"><span class="case-tag">ДЛЯ СМІЛИВИХ</span><span class="case-number">03</span></div>
+            <div class="case-art case-art-coral"><span class="case-halo"></span><span class="case-shape shape-flower">✿</span><span class="case-cube cube-coral">★</span><span class="tiny-orbit"></span></div>
+            <div class="case-info"><div><h3>Теплий шум</h3><p>Колекція з яскравим фіналом</p></div><span class="case-price">300 <small>жет.</small></span></div>
+            <button class="button case-open" data-case-name="Теплий шум" data-case-price="300">Відкрити кейс <span>↗</span></button>
+          </article>
+        </div>
+        <div class="fair-note"><span class="note-icon">i</span><p><b>Грай усвідомлено.</b> Результат відкриття випадковий. У цьому макеті жетони та предмети демонстраційні й не мають грошової вартості.</p><a href="#howItWorks">Як це працює <span>↗</span></a></div>
+      </section>
+
+      <section class="view upgrade-view" id="upgradeView" aria-labelledby="upgradeTitle" hidden>
+        <div class="subpage-heading"><p class="eyebrow muted">МАЙСТЕРНЯ · РЕЖИМ 02</p><h1 id="upgradeTitle">Апгрейд<br><em>на твій смак.</em></h1><p>Обери предмет і ціль, а ми покажемо шанс у демо-раунді.</p></div>
+        <div class="upgrade-board">
+          <div class="upgrade-slot"><span class="slot-label">ТВОЯ СТАВКА</span><div class="slot-illustration slot-green">✦</div><h3>Starter skin</h3><p>Вартість: 80 жет.</p><button class="button button-outline" id="selectStake">Обрано</button></div>
+          <div class="upgrade-center"><div class="upgrade-ring"><span>2.4×</span><small>МНОЖНИК</small></div><span class="chance-label">Шанс у демо-раунді: <b>41%</b></span><button class="button button-dark" id="upgradeButton">Спробувати апгрейд <span>↗</span></button></div>
+          <div class="upgrade-slot"><span class="slot-label">ЦІЛЬ</span><div class="slot-illustration slot-coral">✷</div><h3>Neon Current</h3><p>Ціна цілі: 192 жет.</p><button class="button button-outline" id="changeTarget">Змінити ціль ↗</button></div>
+        </div>
+        <p class="demo-caption">Демо-механіка для прототипу. Шанси й результати тут умовні.</p>
+      </section>
+
+      <section class="view inventory-view" id="inventoryView" aria-labelledby="inventoryTitle" hidden>
+        <div class="subpage-heading"><p class="eyebrow muted">ТВОЯ КОЛЕКЦІЯ</p><h1 id="inventoryTitle">Інвентар<br><em>з настроєм.</em></h1><p>Предмети з демо-відкриттів з’являтимуться тут.</p></div>
+        <div class="inventory-empty" id="inventoryEmpty"><span class="empty-mark">✳</span><h2>Поки що порожньо</h2><p>Відкрий один із кейсів — перший предмет додасться сюди.</p><button class="button button-dark" data-view="casesView">До кейсів ↗</button></div>
+        <div class="inventory-items" id="inventoryItems" aria-live="polite"></div>
+      </section>
+
+      <section class="bottom-ribbon" id="howItWorks"><div><span class="ribbon-star">✳</span><p>Зроблено для гри,<br><b>не для поспіху.</b></p></div><span class="ribbon-copy">YARUNA BODYAK <i>·</i> GAME ATELIER <i>·</i> CS2 <i>·</i> 2026</span><button class="text-button" data-open-topup>Поповнити демо-баланс ↗</button></section>
+    </main>
+    <footer class="footer"><span>Yaruna Bodyak © 2026</span><span>Концепт інтерфейсу · предмети та валюта віртуальні</span><a href="#home">Нагору ↑</a></footer>
+  </div>
+
+  <dialog class="topup-dialog" id="topupDialog" aria-labelledby="topupTitle">
+    <form method="dialog"><button class="dialog-close" aria-label="Закрити меню">×</button></form>
+    <div class="modal-eyebrow"><span class="coin-icon">✳</span> ДЕМО-БАЛАНС</div>
+    <h2 id="topupTitle">Додай жетонів<br><em>для гри.</em></h2>
+    <p class="modal-copy">Обери пакет. Це інтерактивний макет: справжнього списання коштів немає.</p>
+    <div class="pack-grid" role="group" aria-label="Оберіть пакет жетонів">
+      <button class="pack-option" data-amount="100"><span>Старт</span><b>100</b><small>жетонів</small></button>
+      <button class="pack-option selected" data-amount="300"><span>Популярний</span><b>250</b><small>жетонів</small><i>+50 бонус</i></button>
+      <button class="pack-option" data-amount="625"><span>Колекція</span><b>500</b><small>жетонів</small><i>+125 бонус</i></button>
+      <button class="pack-option" data-amount="1300"><span>Великий день</span><b>1 000</b><small>жетонів</small><i>+300 бонус</i></button>
+    </div>
+    <div class="modal-summary"><span>Буде додано</span><b>300 жетонів</b></div>
+    <button class="button button-dark modal-submit" id="addBalanceButton">Зарахувати демо-жетони <span>↗</span></button>
+    <p class="modal-footnote">Без картки · без платежу · лише для демонстрації</p>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
